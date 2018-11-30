@@ -153,6 +153,9 @@
                                 <state key="normal" title="Logout" image="logout">
                                     <color key="titleColor" red="0.13333333333333333" green="0.50196078431372548" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="action_logout:" destination="SD3-4o-b1J" eventType="touchUpInside" id="yQs-zo-MNt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6o7-l2-Nd9">
                                 <rect key="frame" x="0.0" y="299" width="375" height="60"/>
@@ -164,6 +167,9 @@
                                 <state key="normal" title="Account Settings" image="account_circle">
                                     <color key="titleColor" red="0.1333333333" green="0.50196078430000002" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="action_accountSettings:" destination="SD3-4o-b1J" eventType="touchUpInside" id="nlU-3Z-xGm"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ellipse_blue" translatesAutoresizingMaskIntoConstraints="NO" id="IpG-oZ-adG">
                                 <rect key="frame" x="44" y="173" width="75" height="75"/>
@@ -205,6 +211,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Gle-oC-n7N"/>
                     </view>
+                    <connections>
+                        <outlet property="label_email" destination="UZl-EI-zmb" id="Eif-oG-8ag"/>
+                        <outlet property="label_login" destination="SUM-b3-AQV" id="o0T-e9-pw2"/>
+                        <outlet property="label_userFullname" destination="TjP-7x-PHs" id="XhW-K9-cvJ"/>
+                        <outlet property="label_userInitials" destination="sZW-LW-PF4" id="WUG-YZ-8m0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cw5-i5-acF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
