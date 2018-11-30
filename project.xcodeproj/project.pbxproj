@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		863BD7F421B1C378002AAE30 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863BD7F321B1C378002AAE30 /* AccountController.swift */; };
 		B5CA3F3221A891390075A229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CA3F3121A891390075A229 /* AppDelegate.swift */; };
 		B5CA3F3421A891390075A229 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CA3F3321A891390075A229 /* ViewController.swift */; };
 		B5CA3F3721A891390075A229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CA3F3521A891390075A229 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		863BD7F321B1C378002AAE30 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		B5CA3F2E21A891390075A229 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CA3F3121A891390075A229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5CA3F3321A891390075A229 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				B5CA3F3D21A8913A0075A229 /* Info.plist */,
 				D991B2EC21B1B9A200F5E926 /* LoginController.swift */,
 				D991B2EE21B1BCAF00F5E926 /* RegisterController.swift */,
+				863BD7F321B1C378002AAE30 /* AccountController.swift */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D991B2EF21B1BCAF00F5E926 /* RegisterController.swift in Sources */,
+				863BD7F421B1C378002AAE30 /* AccountController.swift in Sources */,
 				B5CA3F3421A891390075A229 /* ViewController.swift in Sources */,
 				D991B2ED21B1B9A200F5E926 /* LoginController.swift in Sources */,
 				B5CA3F3221A891390075A229 /* AppDelegate.swift in Sources */,
