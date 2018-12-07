@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginContoller: UIViewController {
     
     let myFileURL = Bundle.main.path(forResource: "myAccount", ofType: "txt")
     
-    @IBOutlet weak var userName: UITextField!
+
+    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
     
@@ -26,13 +28,13 @@ class LoginContoller: UIViewController {
         let lock = UIImage(named: "lock.png");
         accountView.image = account;
         lockView.image = lock;
-        userName.leftView = accountView;
-        userName.leftViewMode = UITextFieldViewMode.always
-        userName.leftViewMode = .always
+        email.leftView = accountView;
+        email.leftViewMode = UITextFieldViewMode.always
+        email.leftViewMode = .always
         password.leftView = lockView;
         password.leftViewMode = UITextFieldViewMode.always
         password.leftViewMode = .always
-        accountView.frame = CGRect(x: 5, y: 0, width: userName.frame.height - 5, height: userName.frame.height - 5); view.addSubview(accountView)
+        accountView.frame = CGRect(x: 5, y: 0, width: email.frame.height - 5, height: email.frame.height - 5); view.addSubview(accountView)
         lockView.frame = CGRect(x: 5, y: 0, width: password.frame.height - 5 , height: password.frame.height - 5); view.addSubview(lockView)
     }
     
@@ -43,14 +45,18 @@ class LoginContoller: UIViewController {
 
     
     @IBAction func onLoginClicked(_ sender: UIButton) {
-        var getFileContent = ""
-        do {
-            getFileContent += try String (contentsOfFile: myFileURL!, encoding:String.Encoding.utf8)
-        }catch let error as NSError {
-            print("Failed due to \(error)")
+        Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
+            if error == nil{
+                self.performSegue(withIdentifier: "loginToHome", sender: self)
+            }
+            else{
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
-        
-//        userName.text = getFileContent
         
     }
     
