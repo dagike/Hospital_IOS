@@ -57,7 +57,7 @@ class RegistrationController: UIViewController
                         //                    ref.child(user.uid).updateChildValues(firstNameData)
                         //                    ref.child(user.uid).updateChildValues(lastNameData)
                         //                    ref.child(user.uid).updateChildValues(userNameData)
-                        self.performSegue(withIdentifier: "registerToHome", sender: self)
+                        self.performSegue(withIdentifier: "registerToAccount", sender: self)
                     }
                     else{
                         let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -69,5 +69,13 @@ class RegistrationController: UIViewController
             }
             )
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        var userModel = UserModel(firstName: self.firstName.text, lastName: self.lastName.text, login: self.userName.text, email: self.email.text)
+        
+        let accountVC = segue.destinationViewController as RegistrationController
+        destinationVC.userModel = userModel
     }
 }

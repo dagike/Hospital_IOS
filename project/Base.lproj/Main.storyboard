@@ -145,7 +145,7 @@
                     <connections>
                         <outlet property="email" destination="Hqx-RB-J45" id="gly-OM-lN3"/>
                         <outlet property="password" destination="l2l-HW-Mwf" id="EgG-Qp-aPl"/>
-                        <segue destination="KUP-2d-UbO" kind="show" identifier="loginToHome" id="cbf-m6-kSJ"/>
+                        <segue destination="SD3-4o-b1J" kind="showDetail" identifier="loginToAccount" id="bpI-bm-3tp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2b-1Z-T9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -357,7 +357,7 @@
                         <outlet property="lastName" destination="81L-CU-nIk" id="Fha-Uh-tdJ"/>
                         <outlet property="password" destination="NtV-Ei-qkE" id="pYN-5J-yAE"/>
                         <outlet property="userName" destination="g7s-KY-l8X" id="HrG-MD-DzJ"/>
-                        <segue destination="KUP-2d-UbO" kind="show" identifier="registerToHome" id="DtU-g5-vLV"/>
+                        <segue destination="SD3-4o-b1J" kind="showDetail" identifier="registerToAccount" id="7Ln-gr-nN7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gn-2G-NHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -391,7 +391,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fhj-FM-098"/>
-        <segue reference="DtU-g5-vLV"/>
+        <segue reference="bpI-bm-3tp"/>
         <segue reference="uY7-tF-8aI"/>
     </inferredMetricsTieBreakers>
 </document>

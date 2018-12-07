@@ -15,9 +15,15 @@ class AccountController: UIViewController {
     @IBOutlet weak var label_login: UILabel!
     @IBOutlet weak var label_email: UILabel!
     
+    var userModel: UserModel
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if self.userModel == nil {
+            self.userModel = UserModel(firstName: "temp", lastName: "temp", login: "temp", email: "temp")
+        }
     }
     
     override func didReceiveMemoryWarning() {

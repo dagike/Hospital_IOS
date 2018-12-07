@@ -10,6 +10,7 @@
 		24870F3E9076E97009FCC11C /* Pods_projectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5981FB3DA9684D727A9BAA45 /* Pods_projectUITests.framework */; };
 		69D71EB4D88B48945BBFF835 /* Pods_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36CA21B68C430B97A229A75 /* Pods_project.framework */; };
 		863BD7F421B1C378002AAE30 /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863BD7F321B1C378002AAE30 /* AccountController.swift */; };
+		863D2D3B21BAF28C003B73BA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863D2D3A21BAF28C003B73BA /* UserModel.swift */; };
 		9F85F0E121BA2F830025316C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F85F0E021BA2F830025316C /* GoogleService-Info.plist */; };
 		B5CA3F3221A891390075A229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CA3F3121A891390075A229 /* AppDelegate.swift */; };
 		B5CA3F3421A891390075A229 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CA3F3321A891390075A229 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		5A0BFAED0B04A1ACA0EDA311 /* Pods_projectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BEBFFB42368B6DC7059EFA5 /* Pods-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.release.xcconfig"; path = "Pods/Target Support Files/Pods-project/Pods-project.release.xcconfig"; sourceTree = "<group>"; };
 		863BD7F321B1C378002AAE30 /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		863D2D3A21BAF28C003B73BA /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9F85F0E021BA2F830025316C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A66D653AABBAD881CAA3E77D /* Pods-projectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectUITests/Pods-projectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B1E263F865C646DF3D789039 /* Pods-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-project/Pods-project.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				D991B2EC21B1B9A200F5E926 /* LoginController.swift */,
 				863BD7F321B1C378002AAE30 /* AccountController.swift */,
 				D991B2F421B1E23100F5E926 /* RegistrationController.swift */,
+				863D2D3A21BAF28C003B73BA /* UserModel.swift */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -332,8 +335,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-project/Pods-project-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -342,8 +343,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -402,6 +401,7 @@
 				B5CA3F3421A891390075A229 /* ViewController.swift in Sources */,
 				D991B2ED21B1B9A200F5E926 /* LoginController.swift in Sources */,
 				D991B2F521B1E23100F5E926 /* RegistrationController.swift in Sources */,
+				863D2D3B21BAF28C003B73BA /* UserModel.swift in Sources */,
 				B5CA3F3221A891390075A229 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
