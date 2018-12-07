@@ -59,4 +59,9 @@ class LoginContoller: UIViewController {
         }
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        let accountVC = segue.destinationViewController as RegistrationController
+        destinationVC.email = self.email.text
+    }
 }

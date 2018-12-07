@@ -72,10 +72,7 @@ class RegistrationController: UIViewController
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        
-        var userModel = UserModel(firstName: self.firstName.text, lastName: self.lastName.text, login: self.userName.text, email: self.email.text)
-        
         let accountVC = segue.destinationViewController as RegistrationController
-        destinationVC.userModel = userModel
+        destinationVC.email = self.email.text
     }
 }

@@ -15,7 +15,8 @@ class AccountController: UIViewController {
     @IBOutlet weak var label_login: UILabel!
     @IBOutlet weak var label_email: UILabel!
     
-    var userModel: UserModel
+    var userModel: UserModel?
+    var email: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,17 @@ class AccountController: UIViewController {
         if self.userModel == nil {
             self.userModel = UserModel(firstName: "temp", lastName: "temp", login: "temp", email: "temp")
         }
+        else {
+            // TODO: load from db by email
+            self.userModel.firstName = "temp"
+            self.userModel.lastName = "temp"
+            self.userModel.login = "temp"
+        }
+        
+        self.label_userInitials.text = self.userModel?.getInitials()
+        self.label_userFullname.text = self.userModel?.getFullName()
+        self.label_email.text = self.userModel?.email
+        self.label_login.text = self.userModel?.login
     }
     
     override func didReceiveMemoryWarning() {
