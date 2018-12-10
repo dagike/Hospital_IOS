@@ -12,7 +12,7 @@ import Firebase
 class LoginContoller: UIViewController {
     
     let myFileURL = Bundle.main.path(forResource: "myAccount", ofType: "txt")
-    
+    var userUid: String = "";
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -45,8 +45,10 @@ class LoginContoller: UIViewController {
 
     
     @IBAction func onLoginClicked(_ sender: UIButton) {
-        Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
+        Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (authResult, error) in
             if error == nil{
+                guard let user = authResult?.user else { return }
+                self.userUid = user.uid
                 self.performSegue(withIdentifier: "loginToAccount", sender: self)
             }
             else{
@@ -60,8 +62,8 @@ class LoginContoller: UIViewController {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let accountVC = segue.destinationViewController as RegistrationController
-        destinationVC.email = self.email.text
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let accountVC = segue.destination as! AccountController
+        accountVC.userUid = self.userUid
     }
 }

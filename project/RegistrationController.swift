@@ -19,6 +19,7 @@ class RegistrationController: UIViewController
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
+    var userUid: String = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,15 +49,9 @@ class RegistrationController: UIViewController
                 completion: { (authResult, error) in
                     guard let user = authResult?.user else { return }
                     if error == nil {
-//                        ref.child("data/users").updateChildValues(["\(Auth.auth().currentUser!.uid)":["Username":self.username.text!]])
-
-                        ref.child("data/users").child(user.uid).setValue(self.email.text!)
-                        //                    let firstNameData = ["firstName": self.firstName.text] as [String : Any]
-                        //                    let lastNameData = ["lastName": self.lastName.text] as [String : Any]
-                        //                    let userNameData = ["userName": self.userName.text] as [String : Any]
-                        //                    ref.child(user.uid).updateChildValues(firstNameData)
-                        //                    ref.child(user.uid).updateChildValues(lastNameData)
-                        //                    ref.child(user.uid).updateChildValues(userNameData)
+                        let values = ["firstName": self.firstName.text!, "lastName": self.lastName.text!, "userName": self.userName.text!, "email": self.email.text!]
+                        ref.child("users").child(user.uid).setValue(values)
+                        self.userUid = user.uid
                         self.performSegue(withIdentifier: "registerToAccount", sender: self)
                     }
                     else{
@@ -71,8 +66,8 @@ class RegistrationController: UIViewController
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let accountVC = segue.destinationViewController as RegistrationController
-        destinationVC.email = self.email.text
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let accountVC = segue.destination as! AccountController
+        accountVC.userUid = self.userUid
     }
 }
