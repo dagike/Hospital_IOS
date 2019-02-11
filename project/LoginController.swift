@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class LoginContoller: UIViewController {
     
@@ -49,7 +50,24 @@ class LoginContoller: UIViewController {
             if error == nil{
                 guard let user = authResult?.user else { return }
                 self.userUid = user.uid
-                self.performSegue(withIdentifier: "loginToAccount", sender: self)
+                let ref = Database.database().reference()
+                ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
+                    let value = snapshot.value as? NSDictionary
+                    let accountType = value?["type"] as? String ?? ""
+                    if accountType == "Doctor" {
+                        self.performSegue(withIdentifier: "loginToDoctorView", sender: self)
+                    } else if accountType == "Patient" {
+                        self.performSegue(withIdentifier: "loginToPatientView", sender: self)
+                    } else if accountType == "Pharmacy" {
+                        self.performSegue(withIdentifier: "loginToPharmacyView", sender: self)
+                    } else {
+                        self.performSegue(withIdentifier: "loginToAccount", sender: self)
+                    }
+                   
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
             }
             else{
                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -63,7 +81,14 @@ class LoginContoller: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let accountVC = segue.destination as! AccountController
-        accountVC.userUid = self.userUid
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "loginToAccount":
+                let accountVC = segue.destination as! AccountController
+                accountVC.userUid = self.userUid
+            default: break
+            }
+        }
+        
     }
 }

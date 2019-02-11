@@ -11,16 +11,15 @@ import Firebase
 import FirebaseDatabase
 
 class ReportingController: UIViewController {
+    
     @IBOutlet weak var lbUserCount: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var users = [AnyObject]();
         let ref = Database.database().reference()
         ref.child("users").observe(.value, with: { (snapshot) in
             // Get user value
-            users.append(snapshot.value as AnyObject)
-            print(snapshot.childrenCount);
             self.lbUserCount.text = String(snapshot.childrenCount);
         }) { (error) in
             print(error.localizedDescription)
