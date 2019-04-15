@@ -86,6 +86,9 @@ class LoginContoller: UIViewController {
             case "loginToAccount":
                 let accountVC = segue.destination as! AccountController
                 accountVC.userUid = self.userUid
+            case "loginToPatientView":
+                let patientAccount = segue.destination as! PatientController
+                patientAccount.userUid = self.userUid
             default: break
             }
         }

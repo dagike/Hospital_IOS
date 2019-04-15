@@ -13,6 +13,7 @@
 		863D2D3B21BAF28C003B73BA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863D2D3A21BAF28C003B73BA /* UserModel.swift */; };
 		9F0369B621FB68C8008B8333 /* ReportingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0369B521FB68C8008B8333 /* ReportingController.swift */; };
 		9F0369B821FB69B5008B8333 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F0369B721FB69B5008B8333 /* GoogleService-Info.plist */; };
+		9F342E492224497200C79497 /* PatientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F342E482224497200C79497 /* PatientController.swift */; };
 		B5CA3F3221A891390075A229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CA3F3121A891390075A229 /* AppDelegate.swift */; };
 		B5CA3F3421A891390075A229 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CA3F3321A891390075A229 /* ViewController.swift */; };
 		B5CA3F3721A891390075A229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CA3F3521A891390075A229 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		863D2D3A21BAF28C003B73BA /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9F0369B521FB68C8008B8333 /* ReportingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingController.swift; sourceTree = "<group>"; };
 		9F0369B721FB69B5008B8333 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9F342E482224497200C79497 /* PatientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientController.swift; sourceTree = "<group>"; };
 		A66D653AABBAD881CAA3E77D /* Pods-projectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectUITests/Pods-projectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B1E263F865C646DF3D789039 /* Pods-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-project/Pods-project.debug.xcconfig"; sourceTree = "<group>"; };
 		B36CA21B68C430B97A229A75 /* Pods_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 				863D2D3A21BAF28C003B73BA /* UserModel.swift */,
 				B5F5D5DC21F62EC3005F9AD0 /* AccountSettingsController.swift */,
 				9F0369B521FB68C8008B8333 /* ReportingController.swift */,
+				9F342E482224497200C79497 /* PatientController.swift */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				9F0369B621FB68C8008B8333 /* ReportingController.swift in Sources */,
 				D991B2ED21B1B9A200F5E926 /* LoginController.swift in Sources */,
 				D991B2F521B1E23100F5E926 /* RegistrationController.swift in Sources */,
+				9F342E492224497200C79497 /* PatientController.swift in Sources */,
 				B5F5D5DD21F62EC3005F9AD0 /* AccountSettingsController.swift in Sources */,
 				863D2D3B21BAF28C003B73BA /* UserModel.swift in Sources */,
 				B5CA3F3221A891390075A229 /* AppDelegate.swift in Sources */,

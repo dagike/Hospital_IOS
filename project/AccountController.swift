@@ -17,9 +17,14 @@ class AccountController: UIViewController {
     @IBOutlet weak var label_userFullname: UILabel!
     @IBOutlet weak var label_login: UILabel!
     @IBOutlet weak var label_email: UILabel!
+    @IBOutlet weak var btn_patientAssign: UIButton!
     
     var userModel: UserModel?
     var userUid: String?
+    fileprivate var _refHandle: DatabaseHandle?
+    let ref = Database.database().reference()
+    var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    var notificationCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,6 @@ class AccountController: UIViewController {
         
         
         // TODO: load from db by email
-        let ref = Database.database().reference()
         ref.child("users").child((self.userUid)!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
@@ -45,7 +49,32 @@ class AccountController: UIViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
+        
+        configureDatabase()
         print("userFullName = \(String(describing: self.userModel?.email))")
+    }
+    
+    func configureDatabase() {
+        // Listen for new messages in the Firebase database
+        _refHandle = self.ref.child("books").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            //guard let strongSelf = self else { return }
+            print(snapshot)
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let value = snap.value as? NSDictionary
+                let doctorId = value?["doctorId"] as? String ?? ""
+                if doctorId == "" {
+                    self?.notificationCount = (self?.notificationCount)! + 1
+                }
+            }
+            if((self?.notificationCount)! > 0) {
+                    self?.appDelegate?.scheduleNotification()
+            }
+            self?.btn_patientAssign.setTitle("Patient Assign (\((self?.notificationCount)!/3))", for: UIControlState.normal)
+
+//            strongSelf.messages.append(snapshot)
+//            strongSelf.clientTable.insertRows(at: [IndexPath(row: strongSelf.messages.count-1, section: 0)], with: .automatic)
+        })
     }
     
     override func didReceiveMemoryWarning() {

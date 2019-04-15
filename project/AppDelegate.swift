@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (authorized: Bool, error: Error?) in if !authorized {
+            print("App is not authoried to allow notification")
+        }
+        }
         FirebaseApp.configure()
         return true
     }
@@ -43,6 +48,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func scheduleNotification() {
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let content = UNMutableNotificationContent()
+        content.title = "You have to assign new appointment"
+        content.body = "You Should"
+        content.sound = UNNotificationSound.default()
+        
+        let request = UNNotificationRequest(identifier: "New Appointment Notification", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        
+        UNUserNotificationCenter.current().add(request){(error: Error?) in
+            if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
